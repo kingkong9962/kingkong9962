@@ -1,0 +1,31 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+const sportsNews = [
+  { title: "Football: Champions League Update", content: "Latest results and standings..." },
+  { title: "Basketball: NBA Playoff Race", content: "Who's in and who's out?" },
+  { title: "Tennis: Grand Slam Preview", content: "Top contenders for the upcoming tournament." },
+];
+
+export default function SportsWebsite() {
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold mb-4">Sports News</h1>
+      <div className="grid gap-4">
+        {sportsNews.map((news, index) => (
+          <motion.div key={index} whileHover={{ scale: 1.05 }}>
+            <Card>
+              <CardContent className="p-4">
+                <h2 className="text-xl font-semibold">{news.title}</h2>
+                <p className="text-gray-600 mt-2">{news.content}</p>
+                <Button className="mt-2">Read More</Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
